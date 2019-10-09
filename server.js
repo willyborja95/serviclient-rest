@@ -33,9 +33,13 @@ app.use(require('./routes/index'))
 // para Local mongoose.connect('mongodb://localhost:27017/sga2'
 // mongoose.connect('mongodb://localhost:27017/sga',{ //process.env.URLDB =>  de esatamnera s epone cuando ya tenemos configurado nuestro archivo config con la DB
 // para local
-mongoose.connect(process.env.URLDB, { //process.env.URLDB =>  de esatamnera s epone cuando ya tenemos configurado nuestro archivo config con la DB
-  useNewUrlParser: true
-}).catch(error => handleError(error));
+
+
+try {
+  await mongoose.connect(process.env.URLDB, { useNewUrlParser: true });
+} catch (error) {
+  handleError(error);
+}
 
 console.log('Desde server la urlde ladb ' + process.env.URLDB);
 
