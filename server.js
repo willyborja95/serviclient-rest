@@ -34,13 +34,23 @@ app.use(require('./routes/index'))
 // mongoose.connect('mongodb://localhost:27017/sga',{ //process.env.URLDB =>  de esatamnera s epone cuando ya tenemos configurado nuestro archivo config con la DB
 // para local
 
+mongoose.connect(process.env.URLDB, { useNewUrlParser: true })
+       .then(() => {
+         console.log('Database connection successful')
+       })
+       .catch(err => {
+         console.error('Database connection error')
+       })
 
+
+
+/*
 try {
   await mongoose.connect(process.env.URLDB, { useNewUrlParser: true });
 } catch (error) {
   handleError(error);
 }
-
+*/
 console.log('Desde server la urlde ladb ' + process.env.URLDB);
 
 // sola esta linea es para heroku
