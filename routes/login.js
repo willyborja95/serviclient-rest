@@ -11,8 +11,7 @@ app.post('/login',(req,res)=>{
       email:body.email
     },(err,result)=>{
       console.log("Login")
-      print(result);
-      console.log(result)
+      print(err);
       if(err){
         res.status(500).json({
           ok: false,
