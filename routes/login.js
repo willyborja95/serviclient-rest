@@ -17,7 +17,7 @@ app.post('/login',(req,res)=>{
           err
         })
       }
-      if(!result){
+      if(result==null){
         res.status(400).json({
           ok:false,
           result,
