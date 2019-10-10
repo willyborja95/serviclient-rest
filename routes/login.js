@@ -18,7 +18,7 @@ app.post('/login',(req,res)=>{
         })
       }
       if(result==null){
-        print("npo hay naaada");
+        console.log("npo hay naaada");
         res.status(400).json({
           ok:false,
           result,
