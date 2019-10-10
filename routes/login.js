@@ -20,7 +20,6 @@ app.post('/login', (req, res) => {
     if (result == null) {
       return res.status(400).json({
         ok: false,
-        result,
         message: 'No se encontro el usuario'
       })
     }
@@ -48,7 +47,6 @@ app.post('/login', (req, res) => {
     } else {
       return res.status(400).json({
         ok: false,
-        result,
         message: 'No se encontro el usuario'
       })
     }
