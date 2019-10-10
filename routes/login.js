@@ -45,6 +45,12 @@ app.post('/login', (req, res) => {
         usuario: result,
         token
       })
+    } else {
+      return res.status(400).json({
+        ok: false,
+        result,
+        message: 'No se encontro el usuario'
+      })
     }
   })
 
