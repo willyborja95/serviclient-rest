@@ -17,13 +17,14 @@ app.post('/login',(req,res)=>{
           err
         })
       }
-      if(result == null){
+      if(!result){
         res.status(400).json({
           ok:false,
           result,
           message:'No se encontro el usuario'
         })
       }
+      console.log(body);
       const match = bcrypt.compareSync(body.password, result.password) // compara si el registro de labse de datos es igual al que le mandamos en el post
       // firmamos un token
       if(match){
