@@ -11,17 +11,13 @@ app.post('/login',(req,res)=>{
     User.findOne({
       email:body.email
     },(err,result)=>{
-      console.log("result");
-      console.log(result);
-      console.log("error");
-      console.log(err);
       if(err){
         res.status(500).json({
           ok: false,
           err
         })
       }
-      if(!result){
+      if(result == null){
         res.status(400).json({
           ok:false,
           result,
