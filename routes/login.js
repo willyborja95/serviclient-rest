@@ -12,14 +12,13 @@ app.post('/login',(req,res)=>{
       email:body.email
     },(err,result)=>{
       if(err){
-        res.status(500).json({
+        return res.status(500).json({
           ok: false,
           err
         })
       }
       if(result==null){
-        console.log("npo hay naaada");
-        res.status(400).json({
+        return res.status(400).json({
           ok:false,
           result,
           message:'No se encontro el usuario'
